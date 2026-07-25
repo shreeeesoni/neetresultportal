@@ -11,457 +11,491 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #f5f5f5;
         }
 
-        .top-header {
-            background-color: white;
-            padding: 15px 40px;
+        .header {
+            background: white;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 2px solid #ddd;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            flex: 0 0 auto;
         }
 
-        .logo {
+        .logo-circle {
             width: 50px;
             height: 50px;
-            background-color: #f0f0f0;
+            background: #e8e8e8;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-        }
-
-        .header-text {
-            line-height: 1.4;
-        }
-
-        .header-text .dept {
             font-weight: bold;
-            font-size: 13px;
+        }
+
+        .header-info {
+            line-height: 1.3;
+        }
+
+        .header-info .title {
+            font-weight: bold;
+            font-size: 12px;
             color: #333;
         }
 
-        .header-text .ministry {
-            font-size: 12px;
-            color: #555;
-        }
-
-        .header-text .country {
+        .header-info .subtitle {
             font-size: 11px;
-            color: #777;
+            color: #666;
         }
 
-        .header-title {
-            text-align: center;
+        .header-info .subtext {
+            font-size: 10px;
+            color: #999;
+        }
+
+        .header-center {
             flex: 1;
-            margin: 0 40px;
+            text-align: center;
+            padding: 0 20px;
         }
 
-        .header-title h1 {
-            font-size: 18px;
-            color: #1a1a1a;
+        .header-center h1 {
+            font-size: 16px;
+            color: #333;
             font-weight: bold;
             margin-bottom: 3px;
         }
 
-        .header-title p {
+        .header-center p {
             font-size: 12px;
             color: #666;
         }
 
         .header-right {
-            text-align: right;
-        }
-
-        .nta-section {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 8px;
+            flex: 0 0 auto;
         }
 
-        .nta-logo-box {
-            width: 50px;
-            height: 50px;
+        .nta-box {
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
             border-radius: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
         }
 
         .nta-text {
-            font-size: 11px;
-            line-height: 1.3;
-            color: #ff9800;
-            font-weight: bold;
+            font-size: 10px;
+            text-align: right;
+            line-height: 1.2;
         }
 
         .nta-hindi {
+            color: #ff9800;
+            font-weight: bold;
             font-size: 10px;
-            color: #1a1a1a;
         }
 
-        .navy-bar {
-            background-color: #1a3a5c;
-            height: 6px;
+        .nta-english {
+            color: #333;
+            font-size: 9px;
         }
 
-        .main-content {
+        .navy-divider {
+            height: 5px;
+            background: #1a3a5c;
+        }
+
+        .main-container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
-        .view-result-box {
-            background-color: white;
+        .card {
+            background: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
             border-radius: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
-        .result-header {
-            background-color: #1a3a5c;
+        .card-header {
+            background: #1a3a5c;
             color: white;
-            padding: 12px 25px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 15px;
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .lock-icon {
-            font-size: 18px;
+        .card-body {
+            padding: 30px;
+            background: #fafafa;
         }
 
-        .form-wrapper {
-            padding: 40px;
-            background-color: #fafafa;
-        }
-
-        .form-row {
+        .form-group {
             display: flex;
+            margin-bottom: 20px;
             align-items: center;
-            margin-bottom: 25px;
-            gap: 30px;
         }
 
-        .form-row label {
-            width: 180px;
+        .form-label {
+            width: 220px;
+            text-align: right;
+            padding-right: 20px;
             font-size: 13px;
             color: #333;
             font-weight: 500;
-            text-align: right;
+            flex-shrink: 0;
         }
 
-        .form-row input {
+        .form-input {
             flex: 1;
-            max-width: 350px;
-            padding: 8px 12px;
-            border: 1px solid #bbb;
-            border-radius: 2px;
-            font-size: 13px;
-            background-color: white;
+            max-width: 300px;
         }
 
-        .form-row input:focus {
+        .form-input input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #999;
+            border-radius: 2px;
+            font-size: 12px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-input input:focus {
             outline: none;
             border-color: #1a3a5c;
-            box-shadow: 0 0 3px rgba(26, 58, 92, 0.3);
+            background: #fffaf0;
         }
 
-        .captcha-row {
+        .captcha-group {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
-            gap: 30px;
+            margin-bottom: 20px;
+            gap: 15px;
         }
 
-        .captcha-row label {
-            width: 180px;
+        .captcha-label {
+            width: 220px;
+            text-align: right;
+            padding-right: 20px;
             font-size: 13px;
             color: #333;
             font-weight: 500;
-            text-align: right;
+            flex-shrink: 0;
         }
 
-        .captcha-input-group {
+        .captcha-input {
+            flex: 1;
+            max-width: 300px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            flex: 1;
-            max-width: 350px;
+            gap: 8px;
         }
 
-        .captcha-input-group input {
+        .captcha-input input {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #bbb;
+            padding: 8px 10px;
+            border: 1px solid #999;
             border-radius: 2px;
-            font-size: 13px;
-            background-color: white;
+            font-size: 12px;
+            background: white;
+        }
+
+        .captcha-input input:focus {
+            outline: none;
+            border-color: #1a3a5c;
         }
 
         .captcha-box {
-            background-color: #1a3a5c;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 2px;
+            background: #1a3a5c;
+            color: white;
+            padding: 8px 12px;
             font-weight: bold;
             font-size: 16px;
             letter-spacing: 2px;
             font-family: 'Courier New', monospace;
             user-select: none;
-            min-width: 120px;
+            min-width: 110px;
             text-align: center;
+            border-radius: 2px;
         }
 
-        .refresh-icon {
-            background-color: white;
-            border: 1px solid #4caf50;
+        .refresh-btn {
+            background: white;
+            border: 2px solid #4caf50;
             color: #4caf50;
             padding: 6px 10px;
             border-radius: 2px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: bold;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .refresh-icon:hover {
-            background-color: #4caf50;
+        .refresh-btn:hover {
+            background: #4caf50;
             color: white;
         }
 
-        .captcha-display-row {
+        .captcha-display {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            gap: 30px;
+            margin-bottom: 25px;
+            gap: 15px;
         }
 
-        .captcha-display-row label {
-            width: 180px;
+        .captcha-display-label {
+            width: 220px;
+            text-align: right;
+            padding-right: 20px;
             font-size: 13px;
             color: #333;
             font-weight: 500;
-            text-align: right;
+            flex-shrink: 0;
         }
 
-        .captcha-display-group {
+        .captcha-display-content {
+            flex: 1;
+            max-width: 300px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            flex: 1;
-            max-width: 350px;
+            gap: 8px;
         }
 
         .captcha-display-box {
-            background-color: #1a3a5c;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 2px;
+            background: #1a3a5c;
+            color: white;
+            padding: 8px 12px;
             font-weight: bold;
             font-size: 16px;
             letter-spacing: 2px;
             font-family: 'Courier New', monospace;
             user-select: none;
-            min-width: 120px;
+            min-width: 110px;
             text-align: center;
+            border-radius: 2px;
         }
 
         .button-row {
             display: flex;
             align-items: center;
-            margin-top: 30px;
-            gap: 30px;
+            margin-top: 25px;
+            gap: 15px;
         }
 
         .button-spacer {
-            width: 180px;
+            width: 220px;
+            flex-shrink: 0;
         }
 
-        .button-group {
+        .button-actions {
+            flex: 1;
+            max-width: 300px;
             display: flex;
             align-items: center;
-            gap: 30px;
-            flex: 1;
-            max-width: 350px;
+            gap: 20px;
         }
 
         .login-btn {
-            background-color: #4caf50;
+            background: #4caf50;
             color: white;
-            padding: 10px 35px;
+            padding: 10px 30px;
             border: none;
             border-radius: 2px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background 0.3s;
         }
 
         .login-btn:hover {
-            background-color: #45a049;
+            background: #45a049;
         }
 
-        .forgot-password {
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .forgot-link {
             color: #0066cc;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
+            cursor: pointer;
         }
 
-        .forgot-password:hover {
+        .forgot-link:hover {
             text-decoration: underline;
         }
 
-        .error-message {
-            color: #d32f2f;
-            font-size: 13px;
-            padding: 12px;
-            background-color: #ffebee;
+        .message {
+            padding: 10px 12px;
             border-radius: 2px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
             display: none;
-            margin-bottom: 20px;
-            border-left: 4px solid #d32f2f;
         }
 
-        .success-message {
+        .error-msg {
+            background: #ffebee;
+            color: #d32f2f;
+            border-left-color: #d32f2f;
+        }
+
+        .success-msg {
+            background: #e8f5e9;
             color: #2e7d32;
-            font-size: 13px;
-            padding: 12px;
-            background-color: #e8f5e9;
-            border-radius: 2px;
-            display: none;
-            margin-bottom: 20px;
-            border-left: 4px solid #2e7d32;
+            border-left-color: #2e7d32;
         }
 
         .footer {
-            background-color: #1a3a5c;
+            background: #1a3a5c;
             color: white;
             text-align: center;
-            padding: 18px;
-            margin-top: 40px;
-            font-size: 11px;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 10px;
             line-height: 1.5;
         }
 
-        .pdf-container {
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.7);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            animation: fadeIn 0.3s;
         }
 
-        .pdf-modal {
-            background-color: white;
-            width: 90%;
-            height: 90%;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: white;
+            width: 85%;
+            height: 85%;
             border-radius: 5px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s;
         }
 
-        .pdf-modal-header {
-            background-color: #1a3a5c;
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            background: #1a3a5c;
             color: white;
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #ddd;
         }
 
-        .pdf-modal-header h2 {
-            font-size: 16px;
+        .modal-header h2 {
+            font-size: 14px;
+            margin: 0;
         }
 
-        .close-btn {
-            background-color: transparent;
+        .modal-close {
+            background: none;
             border: none;
             color: white;
-            font-size: 26px;
+            font-size: 24px;
             cursor: pointer;
             padding: 0;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s;
         }
 
-        .close-btn:hover {
-            background-color: rgba(255,255,255,0.2);
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
         }
 
-        .pdf-content {
+        .modal-body {
             flex: 1;
             overflow: auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+            background: #f5f5f5;
+            padding: 15px;
         }
 
-        .pdf-content iframe {
+        .modal-body iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        @media (max-width: 900px) {
-            .top-header {
+        @media (max-width: 768px) {
+            .header {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                text-align: center;
             }
 
-            .header-title {
-                margin: 15px 0;
+            .header-left, .header-right {
+                width: 100%;
+                justify-content: center;
             }
 
-            .form-row,
-            .captcha-row,
-            .captcha-display-row,
-            .button-row {
+            .form-group, .captcha-group, .captcha-display, .button-row {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
             }
 
-            .form-row label,
-            .captcha-row label,
-            .captcha-display-row label {
+            .form-label, .captcha-label, .captcha-display-label {
                 width: 100%;
                 text-align: left;
+                padding-right: 0;
+                margin-bottom: 5px;
             }
 
-            .form-row input,
-            .captcha-input-group,
-            .captcha-display-group,
-            .button-group {
+            .form-input, .captcha-input, .captcha-display-content, .button-actions {
                 width: 100%;
                 max-width: 100%;
             }
@@ -469,230 +503,208 @@
             .button-spacer {
                 width: 0;
             }
+
+            .modal {
+                width: 95%;
+                height: 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Top Header -->
-    <div class="top-header">
-        <div class="header-left">
-            <div class="logo">🇮🇳</div>
-            <div class="header-text">
-                <div class="dept">Department of Higher Education</div>
-                <div class="ministry">Ministry of Education</div>
-                <div class="country">Government of India</div>
-            </div>
-        </div>
-        <div class="header-title">
-            <h1>NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) – 2026</h1>
-            <p>Score Card</p>
-        </div>
-        <div class="header-right">
-            <div class="nta-section">
-                <div class="nta-logo-box">🎓</div>
-                <div class="nta-text">राष्ट्रीय परीक्षा एजेंसी<br><span class="nta-hindi">National Testing Agency</span></div>
-            </div>
+
+<!-- Header -->
+<div class="header">
+    <div class="header-left">
+        <div class="logo-circle">🇮🇳</div>
+        <div class="header-info">
+            <div class="title">Department of Higher Education</div>
+            <div class="subtitle">Ministry of Education</div>
+            <div class="subtext">Government of India</div>
         </div>
     </div>
 
-    <div class="navy-bar"></div>
+    <div class="header-center">
+        <h1>NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) – 2026</h1>
+        <p>Score Card</p>
+    </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="view-result-box">
-            <div class="result-header">
-                <span class="lock-icon">🔒</span>
-                View Result
-            </div>
-
-            <div class="form-wrapper">
-                <div id="errorMessage" class="error-message"></div>
-                <div id="successMessage" class="success-message"></div>
-
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-row">
-                        <label for="appNumber">Application Number :</label>
-                        <input 
-                            type="text" 
-                            id="appNumber" 
-                            value="260410764040"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-row">
-                        <label for="password">Password :</label>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            value="Ssas@#9334"
-                            required
-                        >
-                    </div>
-
-                    <div class="captcha-row">
-                        <label for="captchaInput">Enter CAPTCHA(case sensitive) :</label>
-                        <div class="captcha-input-group">
-                            <input 
-                                type="text" 
-                                id="captchaInput" 
-                                required
-                            >
-                            <div class="captcha-box" id="captchaBox">vxKUm9</div>
-                            <button type="button" class="refresh-icon" onclick="generateCaptcha()">
-                                🔄
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="captcha-display-row">
-                        <label>CAPTCHA :</label>
-                        <div class="captcha-display-group">
-                            <div class="captcha-display-box" id="captchaDisplay">vxKUm9</div>
-                            <button type="button" class="refresh-icon" onclick="generateCaptcha()">
-                                🔄
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="button-row">
-                        <div class="button-spacer"></div>
-                        <div class="button-group">
-                            <button type="submit" class="login-btn">LOGIN</button>
-                            <a href="#" class="forgot-password">Forgot Password ?</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <div class="header-right">
+        <div class="nta-box">🎓</div>
+        <div class="nta-text">
+            <div class="nta-hindi">राष्ट्रीय परीक्षा एजेंसी</div>
+            <div class="nta-english">National Testing Agency</div>
         </div>
     </div>
+</div>
 
-    <!-- PDF Modal -->
-    <div id="pdfContainer" class="pdf-container">
-        <div class="pdf-modal">
-            <div class="pdf-modal-header">
-                <h2>NEET Result - Score Card</h2>
-                <button class="close-btn" onclick="closePDF()">&times;</button>
-            </div>
-            <div class="pdf-content">
-                <iframe id="pdfFrame" src=""></iframe>
-            </div>
+<div class="navy-divider"></div>
+
+<!-- Main Content -->
+<div class="main-container">
+    <div class="card">
+        <div class="card-header">
+            🔒 View Result
+        </div>
+        <div class="card-body">
+            <div id="errorMsg" class="message error-msg"></div>
+            <div id="successMsg" class="message success-msg"></div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                
+                <div class="form-group">
+                    <label class="form-label">Application Number :</label>
+                    <div class="form-input">
+                        <input type="text" id="appNumber" value="260410764040" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password :</label>
+                    <div class="form-input">
+                        <input type="password" id="password" value="Ssas@#9334" required>
+                    </div>
+                </div>
+
+                <div class="captcha-group">
+                    <label class="captcha-label">Enter CAPTCHA(case sensitive) :</label>
+                    <div class="captcha-input">
+                        <input type="text" id="captchaInput" placeholder="" required>
+                        <div class="captcha-box" id="captchaBox">vxKUm9</div>
+                        <button type="button" class="refresh-btn" onclick="generateCaptcha()">🔄</button>
+                    </div>
+                </div>
+
+                <div class="captcha-display">
+                    <label class="captcha-display-label">CAPTCHA :</label>
+                    <div class="captcha-display-content">
+                        <div class="captcha-display-box" id="captchaDisplay">vxKUm9</div>
+                        <button type="button" class="refresh-btn" onclick="generateCaptcha()">🔄</button>
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <div class="button-spacer"></div>
+                    <div class="button-actions">
+                        <button type="submit" class="login-btn">LOGIN</button>
+                        <a class="forgot-link" href="javascript:void(0);">Forgot Password ?</a>
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <div class="footer">
-        This site is designed and hosted by NIC PEP Division. The contents are provided by NTA. For any further information, please contact NTA.
+<!-- PDF Modal -->
+<div id="pdfModal" class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>NEET Result - Score Card</h2>
+            <button class="modal-close" onclick="closePDF()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <iframe id="pdfViewer" src=""></iframe>
+        </div>
     </div>
+</div>
 
-    <script>
-        let currentCaptcha = '';
+<!-- Footer -->
+<div class="footer">
+    This site is designed and hosted by NIC PEP Division. The contents are provided by NTA. For any further information, please contact NTA.
+</div>
 
-        // Generate a random captcha
-        function generateCaptcha() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let captcha = '';
-            for (let i = 0; i < 7; i++) {
-                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            currentCaptcha = captcha;
-            document.getElementById('captchaBox').textContent = captcha;
-            document.getElementById('captchaDisplay').textContent = captcha;
-            document.getElementById('captchaInput').value = '';
+<script>
+    let currentCaptcha = '';
+
+    function generateCaptcha() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        currentCaptcha = '';
+        for (let i = 0; i < 7; i++) {
+            currentCaptcha += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        document.getElementById('captchaBox').textContent = currentCaptcha;
+        document.getElementById('captchaDisplay').textContent = currentCaptcha;
+        document.getElementById('captchaInput').value = '';
+    }
+
+    window.addEventListener('load', function() {
+        generateCaptcha();
+    });
+
+    function showError(msg) {
+        const errorDiv = document.getElementById('errorMsg');
+        errorDiv.textContent = msg;
+        errorDiv.style.display = 'block';
+        document.getElementById('successMsg').style.display = 'none';
+    }
+
+    function showSuccess(msg) {
+        const successDiv = document.getElementById('successMsg');
+        successDiv.textContent = msg;
+        successDiv.style.display = 'block';
+        document.getElementById('errorMsg').style.display = 'none';
+    }
+
+    function handleLogin(event) {
+        event.preventDefault();
+
+        const appNumber = document.getElementById('appNumber').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const captchaInput = document.getElementById('captchaInput').value.trim();
+
+        if (!appNumber) {
+            showError('Please enter your application number');
+            return;
         }
 
-        // Initialize captcha on page load
-        window.onload = function() {
+        if (!password) {
+            showError('Please enter your password');
+            return;
+        }
+
+        if (!captchaInput) {
+            showError('Please enter the captcha text');
+            return;
+        }
+
+        if (captchaInput !== currentCaptcha) {
+            showError('CAPTCHA verification failed. Please try again.');
             generateCaptcha();
-        };
-
-        // Handle login form submission
-        function handleLogin(event) {
-            event.preventDefault();
-
-            const appNumber = document.getElementById('appNumber').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const captchaInput = document.getElementById('captchaInput').value.trim();
-
-            const errorDiv = document.getElementById('errorMessage');
-            const successDiv = document.getElementById('successMessage');
-
-            // Hide messages
-            errorDiv.style.display = 'none';
-            successDiv.style.display = 'none';
-
-            // Validation
-            if (!appNumber) {
-                showError('Please enter your application number');
-                return;
-            }
-
-            if (!password) {
-                showError('Please enter your password');
-                return;
-            }
-
-            if (!captchaInput) {
-                showError('Please enter the captcha text');
-                return;
-            }
-
-            // Case-sensitive captcha verification
-            if (captchaInput !== currentCaptcha) {
-                showError('CAPTCHA verification failed. Please try again.');
-                generateCaptcha();
-                return;
-            }
-
-            // If all validations pass, show success and open PDF
-            showSuccess('Login successful! Opening your result document...');
-            
-            setTimeout(function() {
-                openPDF();
-            }, 1500);
+            return;
         }
 
-        function showError(message) {
-            const errorDiv = document.getElementById('errorMessage');
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-        }
+        showSuccess('Login successful! Opening your result document...');
+        
+        setTimeout(function() {
+            openPDF();
+        }, 1500);
+    }
 
-        function showSuccess(message) {
-            const successDiv = document.getElementById('successMessage');
-            successDiv.textContent = message;
-            successDiv.style.display = 'block';
-        }
+    function openPDF() {
+        const modal = document.getElementById('pdfModal');
+        const viewer = document.getElementById('pdfViewer');
+        viewer.src = 'document.pdf';
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 
-        function openPDF() {
-            // Open the PDF in the modal
-            const pdfContainer = document.getElementById('pdfContainer');
-            const pdfFrame = document.getElementById('pdfFrame');
-            
-            // Use document.pdf from the repository
-            pdfFrame.src = 'document.pdf';
-            
-            // Show the modal
-            pdfContainer.style.display = 'flex';
-            
-            // Reset form
-            document.getElementById('loginForm').reset();
-            generateCaptcha();
-            document.getElementById('successMessage').style.display = 'none';
-        }
+    function closePDF() {
+        const modal = document.getElementById('pdfModal');
+        modal.style.display = 'none';
+        document.getElementById('pdfViewer').src = '';
+        document.body.style.overflow = 'auto';
+        document.getElementById('loginForm').reset();
+        generateCaptcha();
+        document.getElementById('successMsg').style.display = 'none';
+    }
 
-        function closePDF() {
-            const pdfContainer = document.getElementById('pdfContainer');
-            pdfContainer.style.display = 'none';
-            document.getElementById('pdfFrame').src = '';
+    document.getElementById('pdfModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePDF();
         }
+    });
+</script>
 
-        // Close PDF when clicking outside the modal
-        document.getElementById('pdfContainer').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closePDF();
-            }
-        });
-    </script>
 </body>
 </html>
