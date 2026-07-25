@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .captcha-container {
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .captcha-box {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 5px;
+            color: #333;
+            user-select: none;
+        }
+
+        .captcha-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .refresh-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 8px;
+            transition: background 0.3s;
+        }
+
+        .refresh-btn:hover {
+            background: #764ba2;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #fadbd8;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #27ae60;
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #d5f4e6;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Login Dashboard</h1>
+            <p>Enter your credentials to access your document</p>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="appNumber">Application Number</label>
+                <input 
+                    type="text" 
+                    id="appNumber" 
+                    placeholder="Enter your application number" 
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="Enter your password" 
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Captcha Verification</label>
+                <div class="captcha-container">
+                    <div class="captcha-box" id="captchaBox">AB12CD</div>
+                    <input 
+                        type="text" 
+                        id="captchaInput" 
+                        class="captcha-input"
+                        placeholder="Enter the text above" 
+                        required
+                    >
+                    <button type="button" class="refresh-btn" onclick="generateCaptcha()">
+                        🔄 Refresh Captcha
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        let currentCaptcha = '';
+
+        // Generate a random captcha
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            currentCaptcha = captcha;
+            document.getElementById('captchaBox').textContent = captcha;
+            document.getElementById('captchaInput').value = '';
+        }
+
+        // Initialize captcha on page load
+        window.onload = function() {
+            generateCaptcha();
+        };
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const appNumber = document.getElementById('appNumber').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const captchaInput = document.getElementById('captchaInput').value.trim();
+
+            const errorDiv = document.getElementById('errorMessage');
+            const successDiv = document.getElementById('successMessage');
+
+            // Hide messages
+            errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+
+            // Validation
+            if (!appNumber) {
+                showError('Please enter your application number');
+                return;
+            }
+
+            if (!password) {
+                showError('Please enter your password');
+                return;
+            }
+
+            if (!captchaInput) {
+                showError('Please enter the captcha text');
+                return;
+            }
+
+            if (captchaInput.toUpperCase() !== currentCaptcha) {
+                showError('Captcha verification failed. Please try again.');
+                generateCaptcha();
+                return;
+            }
+
+            // If all validations pass, show success and open PDF
+            showSuccess('Login successful! Opening your document...');
+            
+            setTimeout(function() {
+                // Open a sample PDF (replace with your actual PDF path)
+                // For this example, we're opening a basic PDF
+                openPDF();
+            }, 1500);
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+        }
+
+        function openPDF() {
+            // Replace 'document.pdf' with your actual PDF file path
+            // You can also modify this to accept dynamic PDF paths
+            const pdfPath = 'document.pdf';
+            
+            // Try to open in new tab
+            window.open(pdfPath, '_blank');
+            
+            // Reset form
+            document.getElementById('loginForm').reset();
+            generateCaptcha();
+            document.getElementById('successMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
